@@ -108,7 +108,7 @@
             ?>
                     @guest
                     <li class="nav-item d-lg-block">
-                        <a href="{{ route('login') }}" target="_blank"
+                        <a href="{{ route('login') }}"
                             class="btn btn-neutral btn-icon">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-sign-in-alt"></i>
@@ -118,7 +118,7 @@
                     </li>
                     @if (Route::has('register'))
                     <li class="nav-item d-lg-block">
-                        <a href="{{ route('register') }}" target="_blank"
+                        <a href="{{ route('register') }}"
                             class="btn btn-neutral btn-icon">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-user-circle"></i>
