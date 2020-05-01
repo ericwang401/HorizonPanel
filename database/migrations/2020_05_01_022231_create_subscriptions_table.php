@@ -22,10 +22,14 @@ class CreateSubscriptionsTable extends Migration
             $table->timestamp('last_payment')->nullable();
             $table->timestamps();
 
-            $table->foreign(['user_id', 'package_id'])
-                ->references(['id', 'id'])
-                ->on(['users', 'packages'])
-                ->onDelete(['cascade', 'cascade']);
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+            $table->foreign('package_id')
+                ->references('id')
+                ->on('packages')
+                ->onDelete('cascade');
         });
     }
 

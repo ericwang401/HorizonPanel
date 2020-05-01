@@ -15,7 +15,14 @@ class CreateBillingIntervalsTable extends Migration
     {
         Schema::create('billing_intervals', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('package_id');
+            $table->unsignedBigInteger('interval');
+            $table->string('rate');
             $table->timestamps();
+            $table->foreign('package_id')
+                ->references('id')
+                ->on('packages')
+                ->onDelete('cascade');
         });
     }
 
