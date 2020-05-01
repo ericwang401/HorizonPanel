@@ -17,8 +17,9 @@ class CreateSubscriptionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('package_id');
-            $table->string('subscription_type', 60);
-            $table->unsignedDecimal('overdue_amount');
+            $table->string('subscription_type', '60');
+            $table->unsignedDecimal('overdue_amount')->default('0');
+            $table->timestamp('last_payment')->nullable();
             $table->timestamps();
 
             $table->foreign(['user_id', 'package_id'])

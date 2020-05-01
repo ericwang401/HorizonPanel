@@ -547,6 +547,7 @@ class ComposerStaticInitc8a1c469873cf7188955798a831e2f05
     );
 
     public static $classMap = array (
+        'App\\BillingInterval' => __DIR__ . '/../..' . '/app/BillingInterval.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
@@ -557,6 +558,7 @@ class ComposerStaticInitc8a1c469873cf7188955798a831e2f05
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\PackagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PackagesController.php',
         'App\\Http\\Controllers\\SubscriptionsController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubscriptionsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
