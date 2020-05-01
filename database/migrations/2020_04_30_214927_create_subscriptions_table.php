@@ -15,7 +15,16 @@ class CreateSubscriptionsTable extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('package_id');
+            $table->string('subscription_type', 60);
+            $table->unsignedDecimal('overdue_amount');
             $table->timestamps();
+
+            $table->foreign(['user_id', 'package_id'])
+                ->references(['id', 'id'])
+                ->on(['users', 'packages'])
+                ->onDelete(['cascade', 'cascade']);
         });
     }
 
