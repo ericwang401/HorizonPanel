@@ -7,6 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Packages::class, function (Faker $faker) {
     return [
-        'title' => 'HorizonPanel Monthly License'
+        'category_id' => factory(App\PackageCategory::class),
+        'title' => $faker->title(),
+        'description' => $faker->paragraph()
     ];
 });
