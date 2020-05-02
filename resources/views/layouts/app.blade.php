@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'HorizonPanel') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -26,10 +26,10 @@
     <nav id="navbar-main" class="navbar navbar-horizontal bg-default navbar-main navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                @if( config('app.logo') )
-                <img src="{{ config('app.logo') }}" alt="{{ config('app.name', 'Laravel') }} logo">
+                @if( config('horizonapp.logo') )
+                <img src="{{ config('horizonapp.logo') }}" alt="{{ config('app.name', 'HorizonPanel') }} logo">
                 @else
-                <h3 class="text-white">{{ config('app.name', 'Laravel') }}</h3>
+                <h3 class="text-white">{{ config('app.name', 'HorizonPanel') }}</h3>
                 @endif
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
@@ -42,9 +42,9 @@
                         <div class="col-6 collapse-brand">
                             <a href="{{ url('/') }}">
                                 @if( config('app.logo') )
-                                <img src="{{ config('app.logo') }}" alt="{{ config('app.name', 'Laravel') }} logo">
+                                <img src="{{ config('app.logo') }}" alt="{{ config('app.name', 'HorizonPanel') }} logo">
                                 @else
-                                <h3>{{ config('app.name', 'Laravel') }}</h3>
+                                <h3>{{ config('app.name', 'HorizonPanel') }}</h3>
                                 @endif
                             </a>
                         </div>
