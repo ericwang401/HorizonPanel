@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePackagesTable extends Migration
+class CreatePackageCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreatePackagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('packages', function (Blueprint $table) {
+        Schema::create('package_categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id');
             $table->text("title");
             $table->text("description")->nullable();
+            $table->boolean('hidden')->default(false);
             $table->timestamps();
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('package_categories')
-                ->onDelete('cascade');
         });
     }
 
@@ -33,6 +29,6 @@ class CreatePackagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('packages');
+        Schema::dropIfExists('package_categories');
     }
 }
