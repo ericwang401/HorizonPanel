@@ -37,4 +37,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Fetch all packages from a user
+     */
+    public function packages()
+    {
+        return $this->hasMany(Subscriptions::class);
+    }
 }
