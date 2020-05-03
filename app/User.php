@@ -41,7 +41,7 @@ class User extends Authenticatable
     /**
      * Fetch all packages from a user
      */
-    public function packages()
+    public function subscriptions()
     {
         return $this->hasMany(Subscriptions::class);
     }
