@@ -12,5 +12,11 @@ return [
     | these language lines according to your application's requirements.
     |
 	*/
-	'home' => 'Home',
+    'home' => 'Home',
+    'subscriptions' => 'Packages',
+
+    'developer' => 'Developer Tools',
+    'begin' => 'Getting Started',
+    'documentation' => 'Documentation',
+    'api_keys' => 'API Keys',
 ];

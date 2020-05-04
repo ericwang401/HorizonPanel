@@ -24,5 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['auth'])->group(function () {
     Route::get('/client/dashboard', 'ClientAreaControllers\DashboardController@index')->name("client.dashboard"); // Not complete
 
-    Route::get('/client/subscriptions', 'ClientAreaControllers\SubscriptionController@index');
+    Route::get('/client/subscriptions', 'ClientAreaControllers\SubscriptionController@index')->name("client.subscriptions");
 });
