@@ -16,6 +16,5 @@ class SubscriptionController extends Controller
         // Fetch the list of associated subscriptions to an account
 
         return view('client_area.subscriptions', ['subscriptions' => Auth::user()->subscriptions()->get()]);
-        //return PackageCategory::find(Packages::find(Auth::user()->packages()->first())->first()->category_id);
     }
 }

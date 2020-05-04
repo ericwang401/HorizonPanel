@@ -1,3 +1,14 @@
+<!--
+=========================================================
+* Argon Dashboard PRO - v1.2.0
+=========================================================
+* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro
+* Copyright  Creative Tim (http://www.creative-tim.com)
+* Coded by www.creative-tim.com
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -8,7 +19,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'HorizonPanel') }}</title>
+    <title>{{ config('app.name', 'HorizonPanel') }} - {{ Request::segment(1) }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

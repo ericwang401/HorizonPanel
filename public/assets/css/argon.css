@@ -22825,3 +22825,6 @@ input.datetimepicker[data-color='yellow']+.bootstrap-datetimepicker-widget table
     background: transparent;
 }
 
+.notification-icon {
+    font-size: 40px;
+}

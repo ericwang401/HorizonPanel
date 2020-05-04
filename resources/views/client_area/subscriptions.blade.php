@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 <?php
 
@@ -13,6 +13,10 @@
  */
 
 ?>
+
+@section('header')
+test
+@endsection
 
 @section('content')
 	@foreach ($subscriptions as $subscription)

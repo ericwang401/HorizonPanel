@@ -10,6 +10,6 @@ class DashboardController extends Controller
     public function index()
     {
         // Show all the info 
-        return "Not available yet";
+        return view('client_area.dashboard');
     }
 }
