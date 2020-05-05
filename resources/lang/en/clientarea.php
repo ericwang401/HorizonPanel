@@ -19,4 +19,9 @@ return [
     'begin' => 'Getting Started',
     'documentation' => 'Documentation',
     'api_keys' => 'API Keys',
+
+    'name' => 'Name',
+    'billing_interval' => 'Billing Interval',
+    'price' => 'Price',
+    'last_payment' => 'Last Payment',
 ];

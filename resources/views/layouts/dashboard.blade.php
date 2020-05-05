@@ -31,6 +31,8 @@
 
 	<!-- Styles -->
 	<link href="{{ asset('assets/css/argon.css') }}" rel="stylesheet">
+
+	@yield('css')
 </head>
 
 <body>
@@ -295,6 +297,25 @@
 					<div class="row align-items-center py-4">
 						<div class="col-lg-6 col-7">
 							<h6 class="h2 text-white d-inline-block mb-0">@yield('header')</h6>
+							<nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+								<ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+									<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+									@for($i = 2; $i <= count(Request::segments()); $i++)
+										@if ($i === count(Request::segments()))
+											<li class="breadcrumb-item active">
+												{{ strtoupper(Request::segment($i)) }}
+											</li>
+										@else
+											<li class="breadcrumb-item">
+												<a href="{{ URL::to( implode( '/', array_slice(Request::segments(), 0 ,$i, true)))}}">
+													{{ strtoupper(Request::segment($i)) }}
+												</a>
+											</li>
+										@endif
+										<?php /* <li class="breadcrumb-item active" aria-current="page">Default</li> */ ?>
+									@endfor
+								</ol>
+							</nav>
 						</div>
 					</div>
 				</div>
@@ -304,12 +325,17 @@
 		@yield('content')
 	</div>
 
+	
+
 	<script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+	@yield('pre-js')
 	<script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 	<script src="{{ asset('assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
 	<script src="{{ asset('assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
 	<script src="{{ asset('assets/vendor/js-cookie/js.cookie.js') }}"></script>
 	<script src="{{ asset('assets/js/argon.js') }}"></script>
+
+	@yield('js')
 </body>
 
 </html>
