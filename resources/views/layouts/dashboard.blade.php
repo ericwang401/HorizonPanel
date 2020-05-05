@@ -19,7 +19,7 @@
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>{{ config('app.name', 'HorizonPanel') }} - {{ Request::segment(2) }}</title>
+	<title>{{ config('app.name', 'HorizonPanel') }} - {{ ucfirst(Request::segment(2)) }}</title>
 
 	<!-- Fonts -->
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
