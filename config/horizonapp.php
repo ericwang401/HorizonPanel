@@ -39,4 +39,17 @@ return [
     */
 
     'dark_mode' => false,
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Pagination Length
+    |--------------------------------------------------------------------------
+    |
+    | This is the amount of rows to display in a table.
+    | This config applies to the entire app.
+    | 
+    | 
+    */
+
+    'pagination_length' => 10,
 ];
