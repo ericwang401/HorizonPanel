@@ -24,4 +24,8 @@ return [
     'billing_interval' => 'Billing Interval',
     'price' => 'Price',
     'last_payment' => 'Last Payment',
+
+    'my_profile' => "My Profile",
+    'open_tickets' => 'Open Tickets',
+    'notifications' => 'Notifications',
 ];

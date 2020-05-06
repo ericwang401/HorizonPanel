@@ -14,7 +14,23 @@ class SubscriptionController extends Controller
     public function index()
     {
         // Fetch the list of associated subscriptions to an account
+        if ( !empty(request('q')) )
+        {
+            // to search the table
 
-        return view('client_area.subscriptions', ['subscriptions' => Auth::user()->subscriptions()->get()]);
+            $searchString = request('q');
+
+            $results = Auth::user()->subscriptions()->whereHas('package', function ($query) use ($searchString){
+                $query->where('title', 'like', '%'.$searchString.'%');
+            })
+            ->with(['package' => function($query) use ($searchString){
+                $query->where('title', 'like', '%'.$searchString.'%');
+            }])->paginate(10);
+
+            return view('client_area.subscriptions', ['subscriptions' => $results]);
+        } else {
+            // if no parameter was specified to perform a search
+            return view('client_area.subscriptions', ['subscriptions' => Auth::user()->subscriptions()->paginate(10)]);
+        }
     }
 }

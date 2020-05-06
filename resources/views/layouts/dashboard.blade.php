@@ -96,14 +96,14 @@
 						*/ ?>
 						<li class="nav-item">
 							<a class="nav-link" href="{{ route('client.dashboard') }}">
-								<i class="fas fa-solar-panel"></i>
-								<span class="nav-link-text">{{ __('clientarea.home') }}</span>
+								<i class="fas fa-home"></i>
+								<span class="nav-link-text">@lang('clientarea.home')</span>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{{ route('client.subscriptions') }}">
 								<i class="fas fa-cubes font-15"></i>
-								<span class="nav-link-text">{{ __('clientarea.subscriptions') }}</span>
+								<span class="nav-link-text">@lang('clientarea.subscriptions')</span>
 							</a>
 						</li>
 					</ul>
@@ -111,7 +111,7 @@
 					<hr class="my-3">
 					<!-- Heading -->
 					<h6 class="navbar-heading p-0 text-muted">
-						<span class="docs-normal">{{ __('clientarea.developer') }}</span>
+						<span class="docs-normal">@lang('clientarea.developer')</span>
 						<span class="docs-mini"><i class="fas fa-tools"></i></span>
 					</h6>
 					<!-- Navigation -->
@@ -119,19 +119,19 @@
 						<li class="nav-item">
 							<a class="nav-link" href="#">
 								<i class="fas fa-check-circle"></i>
-								<span class="nav-link-text">{{ __('clientarea.begin') }}</span>
+								<span class="nav-link-text">@lang('clientarea.begin')</span>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">
 								<i class="fas fa-book"></i>
-								<span class="nav-link-text">{{ __('clientarea.documentation') }}</span>
+								<span class="nav-link-text">@lang('clientarea.documentation')</span>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">
 								<i class="fas fa-key"></i>
-								<span class="nav-link-text">{{ __('clientarea.api_keys') }}</span>
+								<span class="nav-link-text">@lang('clientarea.api_keys')</span>
 							</a>
 						</li>
 					</ul>
@@ -255,35 +255,23 @@
 										<img alt="Image placeholder" src="/assets/img/theme/team-4.jpg">
 									</span>
 									<div class="media-body  ml-2  d-none d-lg-block">
-										<span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+										<span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>
 									</div>
 								</div>
 							</a>
 							<div class="dropdown-menu  dropdown-menu-right ">
-								<div class="dropdown-header noti-title">
-									<h6 class="text-overflow m-0">Welcome!</h6>
-								</div>
 								<a href="#!" class="dropdown-item">
-									<i class="ni ni-single-02"></i>
-									<span>My profile</span>
-								</a>
-								<a href="#!" class="dropdown-item">
-									<i class="ni ni-settings-gear-65"></i>
-									<span>Settings</span>
-								</a>
-								<a href="#!" class="dropdown-item">
-									<i class="ni ni-calendar-grid-58"></i>
-									<span>Activity</span>
-								</a>
-								<a href="#!" class="dropdown-item">
-									<i class="ni ni-support-16"></i>
-									<span>Support</span>
+									<i class="fas fa-user-circle"></i>
+									<span>@lang('clientarea.my_profile')</span>
 								</a>
 								<div class="dropdown-divider"></div>
-								<a href="#!" class="dropdown-item">
-									<i class="ni ni-user-run"></i>
-									<span>Logout</span>
+								<a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+									<i class="fas fa-sign-out-alt"></i>
+									<span>@lang('Logout')</span>
 								</a>
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                	@csrf
+                            	</form>
 							</div>
 						</li>
 					</ul>
@@ -299,7 +287,7 @@
 							<h6 class="h2 text-white d-inline-block mb-0">@yield('header')</h6>
 							<nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
 								<ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-									<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+									<li class="breadcrumb-item"><a href="{{ route('client.dashboard') }}"><i class="fas fa-home"></i></a></li>
 									@for($i = 2; $i <= count(Request::segments()); $i++)
 										@if ($i === count(Request::segments()))
 											<li class="breadcrumb-item active">
@@ -318,6 +306,83 @@
 							</nav>
 						</div>
 					</div>
+
+					@if (Request::segment(2) === "dashboard")
+					<div class="row">
+						<div class="col-xl-3 col-md-6">
+							<div class="card card-stats">
+								<!-- Card body -->
+								<div class="card-body">
+									<div class="row">
+										<div class="col">
+											<h5 class="card-title text-uppercase text-muted mb-0">@lang('clientarea.subscriptions')</h5>
+											<span class="h2 font-weight-bold mb-0">{{ number_format( count( Auth::user()->subscriptions()->get() ) ) }}</span>
+										</div>
+										<div class="col-auto">
+											<div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+												<i class="fas fa-cubes"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-md-6">
+							<div class="card card-stats">
+								<!-- Card body -->
+								<div class="card-body">
+									<div class="row">
+										<div class="col">
+											<h5 class="card-title text-uppercase text-muted mb-0">@lang('clientarea.notifications')</h5>
+											<span class="h2 font-weight-bold mb-0">2,356</span>
+										</div>
+										<div class="col-auto">
+											<div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+												<i class="fas fa-bell"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-md-6">
+							<div class="card card-stats">
+								<!-- Card body -->
+								<div class="card-body">
+									<div class="row">
+										<div class="col">
+											<h5 class="card-title text-uppercase text-muted mb-0">@lang('clientarea.open_tickets')</h5>
+											<span class="h2 font-weight-bold mb-0">924</span>
+										</div>
+										<div class="col-auto">
+											<div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+												<i class="fas fa-clipboard-check"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-md-6">
+							<div class="card card-stats">
+								<!-- Card body -->
+								<div class="card-body">
+									<div class="row">
+										<div class="col">
+											<h5 class="card-title text-uppercase text-muted mb-0">@lang('clientarea.last_payment')</h5>
+											<span class="h2 font-weight-bold mb-0">N/A</span>
+										</div>
+										<div class="col-auto">
+											<div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+												<i class="fas fa-money-bill-alt"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					@endif
 				</div>
 			</div>
 		</div>

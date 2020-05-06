@@ -15,51 +15,69 @@
 ?>
 
 @section('header')
-{{ __('clientarea.subscriptions') }}
+@lang('clientarea.subscriptions')
 @endsection
 
 @section('content')
 <div class="container-fluid mt--6">
 	<div class="row">
-	  <div class="col">
-		<div class="card">
-			<div class="card-header border-0">
-				<h3 class="mb-0">{{ __('clientarea.subscriptions') }}</h3>
-			  </div>
-	<div class="table-responsive pb-5">
-    	<table class="table table-flush" id="package-table">
-    	    <thead class="thead-light">
-    	        <tr>
-    	            <th>{{ __('clientarea.name') }}</th>
-    	            <th>{{ __('clientarea.billing_interval') }}</th>
-    	            <th>{{ __('clientarea.price') }}</th>
-    	            <th>{{ __('clientarea.last_payment') }}</th>
-    	        </tr>
-    	    </thead>
-    	    <tfoot>
-    	        <tr>
-    	            <th>{{ __('clientarea.name') }}</th>
-    	            <th>{{ __('clientarea.billing_interval') }}</th>
-    	            <th>{{ __('clientarea.price') }}</th>
-    	            <th>{{ __('clientarea.last_payment') }}</th>
-    	        </tr>
-    	    </tfoot>
-    	    <tbody>
-				@foreach ($subscriptions as $subscription)
-    	        <tr>
-    	            <td>{{ $subscription->package()->first()->title }}</td>
-    	            <td>N/A</td>
-    	            <td>N/A</td>
-    	            <td>N/A</td>
-				</tr>
-				@endforeach
-    	    </tbody>
-    	</table>
-	</div>
+		<div class="col">
+			<div class="card">
+				<div class="card-header border-0">
+					<div class="col">
+						<h3 class="mb-0">@lang('clientarea.subscriptions')</h3>
+					</div>
+					<div class="col text-right">
+						<form class="table-search navbar-search-light form-inline mr-sm-3">
+							<div class="form-group mb-0">
+								<div class="input-group input-group-alternative input-group-merge">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fas fa-search"></i></span>
+									</div>
+									<input class="form-control" placeholder="Search" type="text" name="q" value="{{ old('q') }}">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-flush" id="package-table">
+						<thead class="thead-light">
+							<tr>
+								<th>@lang('clientarea.name')</th>
+								<th>@lang('clientarea.billing_interval')</th>
+								<th>@lang('clientarea.price')</th>
+								<th>@lang('clientarea.last_payment')</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>@lang('clientarea.name')</th>
+								<th>@lang('clientarea.billing_interval')</th>
+								<th>@lang('clientarea.price')</th>
+								<th>@lang('clientarea.last_payment')</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							@foreach ($subscriptions->all() as $subscription)
+							<tr>
+								<td>{{ $subscription->package()->first()->title }}</td>
+								<td>N/A</td>
+								<td>N/A</td>
+								<td>N/A</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>
+				<div class="card-footer py-4">
+					{{ $subscriptions->links() }}
+				</div>
+			</div>
 		</div>
-	  </div>
 	</div>
 </div>
+
 @endsection
 
 @section('css')
@@ -97,5 +115,5 @@
 			}
 		},
 	});
-</script>	
+</script>
 @endsection

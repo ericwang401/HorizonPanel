@@ -22832,3 +22832,10 @@ input.datetimepicker[data-color='yellow']+.bootstrap-datetimepicker-widget table
 .font-15 {
     font-size: 1.5rem !important;
 }
+
+@media (max-width: 575.98px)
+{
+    .table-search .input-group, .table-search .form-group {
+        width: 100% !important;
+    }
+}

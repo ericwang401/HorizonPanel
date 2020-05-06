@@ -124,7 +124,7 @@
                             <span class="btn-inner--icon">
                                 <i class="fas fa-sign-in-alt"></i>
                             </span>
-                            <span class="nav-link-inner--text">{{ __('Login') }}</span>
+                            <span class="nav-link-inner--text">@lang('Login')</span>
                         </a>
                     </li>
                     @if (Route::has('register'))
@@ -134,7 +134,7 @@
                             <span class="btn-inner--icon">
                                 <i class="fas fa-user-circle"></i>
                             </span>
-                            <span class="nav-link-inner--text">{{ __('Register') }}</span>
+                            <span class="nav-link-inner--text">@lang('Register')</span>
                         </a>
                     </li>
                     @endif
@@ -145,7 +145,10 @@
                             <span class="nav-link-inner--text">{{ Auth::user()->name }}</span>
                         </a>
                         <div class="dropdown-menu">
-                            <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                            <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt"></i>
+                                @lang('Logout')
+                            </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                 style="display: none;">
                                 @csrf
