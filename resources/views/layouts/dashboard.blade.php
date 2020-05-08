@@ -102,8 +102,14 @@
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{{ route('client.subscriptions') }}">
-								<i class="fas fa-cubes font-15"></i>
+								<i class="fas fa-cubes"></i>
 								<span class="nav-link-text">@lang('clientarea.subscriptions')</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="fas fa-shield-alt"></i>
+								<span class="nav-link-text">@lang('clientarea.security')</span>
 							</a>
 						</li>
 					</ul>

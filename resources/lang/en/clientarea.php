@@ -28,4 +28,6 @@ return [
     'my_profile' => "My Profile",
     'open_tickets' => 'Open Tickets',
     'notifications' => 'Notifications',
+
+    'security' => 'Account Security',
 ];

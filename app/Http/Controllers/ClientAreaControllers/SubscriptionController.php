@@ -30,6 +30,7 @@ class SubscriptionController extends Controller
             return view('client_area.subscriptions', ['subscriptions' => $results->appends($request->except('page')), 'q' => $request->q]);
         } else {
             // if no parameter was specified to perform a search
+            
             return view('client_area.subscriptions', ['subscriptions' => Auth::user()->subscriptions()->paginate(config('horizonapp.pagination_length'))]);
         }
     }

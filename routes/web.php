@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/packages', 'PackagesController@index')->name('packages');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/client/dashboard', 'ClientAreaControllers\DashboardController@index')->name("client.dashboard"); // Not complete
 
