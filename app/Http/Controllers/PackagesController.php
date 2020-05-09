@@ -11,6 +11,13 @@ class PackagesController extends Controller
     {
         // return the package categories to display
 
-        return view('package_display', ['package_categories' => PackageCategory::all()]);
+        return view('store.package_display', ['package_categories' => PackageCategory::all(), 'active_category' => PackageCategory::first()]);
+    }
+    
+    public function show($id)
+    {
+        $category = PackageCategory::where('slug', '=', $id)->orWhere('id', '=', $id)->firstOrFail();
+        
+        return view('store.package_display', ['package_categories' => PackageCategory::all(), 'active_category' => $category]);
     }
 }

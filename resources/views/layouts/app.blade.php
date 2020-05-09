@@ -31,6 +31,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('assets/css/argon.css') }}" rel="stylesheet">
+    
+    @yield('css')
 </head>
 
 <body>

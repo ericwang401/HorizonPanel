@@ -15,8 +15,9 @@ class CreatePackageCategoriesTable extends Migration
     {
         Schema::create('package_categories', function (Blueprint $table) {
             $table->id();
-            $table->text("title");
+            $table->text("title")->unique();
             $table->text("description")->nullable();
+            $table->text('slug')->nullable();
             $table->boolean('hidden')->default(false);
             $table->timestamps();
         });

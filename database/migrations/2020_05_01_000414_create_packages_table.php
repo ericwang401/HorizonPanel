@@ -16,8 +16,9 @@ class CreatePackagesTable extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id');
-            $table->text("title");
+            $table->text("title")->unique();
             $table->text("description")->nullable();
+            $table->text('slug')->nullable();
             $table->timestamps();
             $table->foreign('category_id')
                 ->references('id')

@@ -2705,3 +2705,7 @@ var Tags = (function() {
 	}
 
 })();
+
+jQuery(".panel-minimise").click(function(t) {
+	t.preventDefault(), jQuery(this).hasClass("minimised") ? (jQuery(this).parents(".panel").find(".panel-body, .list-group").slideDown(), jQuery(this).removeClass("minimised")) : (jQuery(this).parents(".panel").find(".panel-body, .list-group").slideUp(), jQuery(this).addClass("minimised"))
+})

@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Packages::class, function (Faker $faker) {
     return [
         'category_id' => factory(App\PackageCategory::class),
-        'title' => $faker->title(),
+        'title' => $faker->sentence(),
         'description' => $faker->paragraph()
     ];
 });

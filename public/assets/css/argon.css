@@ -22833,9 +22833,39 @@ input.datetimepicker[data-color='yellow']+.bootstrap-datetimepicker-widget table
     font-size: 1.5rem !important;
 }
 
-@media (max-width: 575.98px)
-{
+@media (max-width: 575.98px) {
     .table-search .input-group, .table-search .form-group {
         width: 100% !important;
     }
+}
+
+@media (min-width: 992px) {
+    .pull-md-left {
+        float: left;
+    }
+    .pull-md-right {
+        float: right;
+    }
+}
+
+.pull-right {
+    float: right!important;
+}
+
+.shop-row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.price-card {
+    padding: 15px;
+}
+
+.price-card .card {
+    height: 100%;
+}
+
+.price-card .card .btn-purchase {
+    bottom: 1.5rem;
+    position: absolute;
 }
