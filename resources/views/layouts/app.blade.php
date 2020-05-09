@@ -158,6 +158,12 @@
                         </div>
                     </li>
                     @endguest
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial"  data-toggle="tooltip" data-original-title="Star us on Github">
+                            <i class="fab fa-github"></i>
+                            <span class="nav-link-inner--text d-lg-none">Github</span>
+                        </a>
+                    </li>
 
                 </ul>
             </div>

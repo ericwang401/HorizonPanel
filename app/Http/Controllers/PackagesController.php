@@ -16,8 +16,8 @@ class PackagesController extends Controller
     
     public function show($id)
     {
-        $category = PackageCategory::where('slug', '=', $id)->orWhere('id', '=', $id)->firstOrFail();
+        // fetch the product from a slug or id
         
-        return view('store.package_display', ['package_categories' => PackageCategory::all(), 'active_category' => $category]);
+        return view('store.package_display', ['package_categories' => PackageCategory::all(), 'active_category' => PackageCategory::where('slug', '=', $id)->orWhere('id', '=', $id)->firstOrFail()]);
     }
 }
