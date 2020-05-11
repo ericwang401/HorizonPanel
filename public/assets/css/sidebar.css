@@ -131,11 +131,6 @@ a.list-group-item, button.list-group-item {
     cursor: pointer;
     transition: transform .2s ease;
 }
-
-.pull-right {
-    float: right!important;
-}
-
 .panel-sidebar .panel-minimise.minimised {
     transform: rotate(180deg);
     margin-top: 7px;
