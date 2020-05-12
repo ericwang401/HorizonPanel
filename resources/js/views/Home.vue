@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<v-button>Test</v-button>
+		<h1>HI</h1>
+		<v-btn>{{ $t('noob') }}</v-btn>
 	</div>
 </template>
 

@@ -6,15 +6,16 @@
 
 import './bootstrap';
 import Vue from 'vue';
-import Vuetify from '../plugins/vuetify';
+import Vuetify from '@/plugins/vuetify';
 import Route from '@/js/routes.js';
 import App from '@/js/App.vue';
-
+import i18n from '@/plugins/multilanguage'
 
 const app = new Vue({
     vuetify: Vuetify,
     el: '#app',
     router: Route,
+    i18n,
     render: h => h(App)
 });
 
