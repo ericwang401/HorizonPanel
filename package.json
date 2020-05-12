@@ -12,6 +12,7 @@
     "devDependencies": {
         "axios": "^0.19",
         "bootstrap": "^4.0.0",
+        "case-sensitive-paths-webpack-plugin": "^2.3.0",
         "cross-env": "^7.0",
         "jquery": "^3.2",
         "laravel-mix": "^5.0.1",
@@ -22,5 +23,10 @@
         "sass-loader": "^8.0.0",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "vue-router": "^3.1.6",
+        "vuetify": "^2.2.27",
+        "vuetify-loader": "^1.4.3"
     }
 }
