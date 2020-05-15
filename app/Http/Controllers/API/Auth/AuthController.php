@@ -38,7 +38,7 @@ class AuthController extends Controller
 			$token->token->save();
 			*/
 
-			// yayy!
+			// We got the authentication token and new we can return it in application/json
             return response()->json(['success' => $success], $this->successStatus);
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -47,18 +47,20 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        // This changes a boolean value on the token. The token exists, but it is useless.
         Auth::user()->token()->revoke();
         return response()->json(['success' => 'logged out'], $this->successStatus);
 	}
 	
 	public function verifyEmail($email)
 	{
-        // return a bool for whether the email exists using the query builder
+        // This returns a bool for whether the email exists using the Laravel query builder
 	    return response()->json(['success' => User::where('email', '=', $email)->exists()], $this->successStatus);;
 	}
 
     public function details() 
     { 
+        // Basic token + user details
         return response()->json(['success' => Auth::user(), "extra"=> Auth::user()->token()->id], $this-> successStatus); 
     }
 
