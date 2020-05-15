@@ -3,7 +3,7 @@
 
         <v-row no-gutters>
             <v-col md="3" sm="6" class="pa-4 mx-auto col-12">
-                <v-card outlined class="pa-4">
+                <v-card class="pa-4">
                     <v-row>
 
                         <v-col class="npt">
@@ -11,7 +11,7 @@
 							<h2>69</h2>
                         </v-col>
                         <v-col class="col-auto npt">
-							<div class="icon-circle icon-color">
+							<div class="icon-circle blue">
 								<v-icon>mdi-cart</v-icon>
 							</div>
                             
@@ -21,7 +21,7 @@
             </v-col>
 
             <v-col md="3" sm="6" class="pa-4 mx-auto col-12">
-                <v-card outlined class="pa-4">
+                <v-card class="pa-4">
                     <v-row>
 
                         <v-col class="npt">
@@ -29,7 +29,7 @@
 							<h2>420</h2>
                         </v-col>
                         <v-col class="col-auto npt">
-							<div class="icon-circle icon-color">
+							<div class="icon-circle teal">
 								<v-icon>mdi-face-agent</v-icon>
 							</div>
                             
@@ -39,7 +39,7 @@
             </v-col>
 
             <v-col md="3" sm="6" class="pa-4 mx-auto col-12">
-                <v-card outlined class="pa-4">
+                <v-card class="pa-4">
                     <v-row>
 
                         <v-col class="npt">
@@ -47,7 +47,7 @@
 							<h2>69</h2>
                         </v-col>
                         <v-col class="col-auto npt">
-							<div class="icon-circle icon-color">
+							<div class="icon-circle red">
 								<v-icon>mdi-rotate-right</v-icon>
 							</div>
                             
@@ -57,7 +57,7 @@
             </v-col>
 
             <v-col md="3" sm="6" class="pa-4 mx-auto col-12">
-                <v-card outlined class="pa-4">
+                <v-card class="pa-4">
                     <v-row>
 
                         <v-col class="npt">
@@ -65,7 +65,7 @@
 							<h2>{{ $t('good') }}</h2>
                         </v-col>
                         <v-col class="col-auto npt">
-							<div class="icon-circle icon-color">
+							<div class="icon-circle green">
 								<v-icon>mdi-server</v-icon>
 							</div>
                             
@@ -94,8 +94,5 @@
 	border-radius: 100%;
     align-items: center;
     justify-content: center;
-}
-.icon-color {
-	background: linear-gradient(87deg,#f5365c 0,#f56036 100%) !important;
 }
 </style>

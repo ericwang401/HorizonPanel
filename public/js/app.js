@@ -8478,7 +8478,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.npt[data-v-63cd6604] {\r\n\tpadding-top: 0 !important;\n}\n.icon-circle[data-v-63cd6604] {\r\n\tdisplay: inline-flex;\r\n    width: 3rem;\r\n    height: 3rem;\r\n\tborder-radius: 100%;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.icon-color[data-v-63cd6604] {\r\n\tbackground: linear-gradient(87deg,#f5365c 0,#f56036 100%) !important;\n}\r\n", ""]);
+exports.push([module.i, "\n.npt[data-v-63cd6604] {\r\n\tpadding-top: 0 !important;\n}\n.icon-circle[data-v-63cd6604] {\r\n\tdisplay: inline-flex;\r\n    width: 3rem;\r\n    height: 3rem;\r\n\tborder-radius: 100%;\r\n    align-items: center;\r\n    justify-content: center;\n}\r\n", ""]);
 
 // exports
 
@@ -42679,7 +42679,7 @@ var render = function() {
             [
               _c(
                 "v-card",
-                { staticClass: "pa-4", attrs: { outlined: "" } },
+                { staticClass: "pa-4" },
                 [
                   _c(
                     "v-row",
@@ -42693,7 +42693,7 @@ var render = function() {
                       _c("v-col", { staticClass: "col-auto npt" }, [
                         _c(
                           "div",
-                          { staticClass: "icon-circle icon-color" },
+                          { staticClass: "icon-circle blue" },
                           [_c("v-icon", [_vm._v("mdi-cart")])],
                           1
                         )
@@ -42714,7 +42714,7 @@ var render = function() {
             [
               _c(
                 "v-card",
-                { staticClass: "pa-4", attrs: { outlined: "" } },
+                { staticClass: "pa-4" },
                 [
                   _c(
                     "v-row",
@@ -42728,7 +42728,7 @@ var render = function() {
                       _c("v-col", { staticClass: "col-auto npt" }, [
                         _c(
                           "div",
-                          { staticClass: "icon-circle icon-color" },
+                          { staticClass: "icon-circle teal" },
                           [_c("v-icon", [_vm._v("mdi-face-agent")])],
                           1
                         )
@@ -42749,7 +42749,7 @@ var render = function() {
             [
               _c(
                 "v-card",
-                { staticClass: "pa-4", attrs: { outlined: "" } },
+                { staticClass: "pa-4" },
                 [
                   _c(
                     "v-row",
@@ -42765,7 +42765,7 @@ var render = function() {
                       _c("v-col", { staticClass: "col-auto npt" }, [
                         _c(
                           "div",
-                          { staticClass: "icon-circle icon-color" },
+                          { staticClass: "icon-circle red" },
                           [_c("v-icon", [_vm._v("mdi-rotate-right")])],
                           1
                         )
@@ -42786,7 +42786,7 @@ var render = function() {
             [
               _c(
                 "v-card",
-                { staticClass: "pa-4", attrs: { outlined: "" } },
+                { staticClass: "pa-4" },
                 [
                   _c(
                     "v-row",
@@ -42800,7 +42800,7 @@ var render = function() {
                       _c("v-col", { staticClass: "col-auto npt" }, [
                         _c(
                           "div",
-                          { staticClass: "icon-circle icon-color" },
+                          { staticClass: "icon-circle green" },
                           [_c("v-icon", [_vm._v("mdi-server")])],
                           1
                         )
