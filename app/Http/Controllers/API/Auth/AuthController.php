@@ -39,7 +39,7 @@ class AuthController extends Controller
 			*/
 
 			// We got the authentication token and new we can return it in application/json
-            return response()->json(['success' => $success], $this->successStatus);
+            return response()->json(['success' => $success, 'admin' => Auth::user()->hasRole('admin')], $this->successStatus);
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);
         }

@@ -1,8 +1,10 @@
 import Vue  from 'vue';
 import VueRouter from 'vue-router';
+import t from '@/plugins/multilanguage';
 
 import Home from '@/js/views/Home';
-import Clients from '@/js/views/Clients'
+import Clients from '@/js/views/Clients';
+import Auth from '@/js/views/Signin';
 
 Vue.use(VueRouter);
 
@@ -18,6 +20,11 @@ const router = new VueRouter({
 			path: '/admin/clients',
 			name: 'Clients',
 			component: Clients
+		},
+		{
+			path: '/admin/signin',
+			name: 'Sign In',
+			component: Auth
 		},
 	]
 });
