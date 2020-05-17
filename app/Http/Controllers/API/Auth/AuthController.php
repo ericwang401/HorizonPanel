@@ -30,16 +30,15 @@ class AuthController extends Controller
 		
         if (Auth::attempt($validator->valid())) { // if the validator passes
             $token = Auth::user()->createToken('authToken'); // create a new auth access token
-            $success['token'] = $token->accessToken;
 
-            /* This logs the device IP and user agent so the user can view all logged in devices on their dashboard
+            // This logs the device IP and user agent so the user can view all logged in devices on their dashboard
             $token->token->user_agent = $request->header('User-Agent');
             $token->token->ip_address = \Request::ip();
 			$token->token->save();
-			*/
+			
 
 			// We got the authentication token and new we can return it in application/json
-            return response()->json(['success' => $success, 'admin' => Auth::user()->hasRole('admin')], $this->successStatus);
+            return response()->json(['success' => ['token' => $token->accessToken ], 'admin' => Auth::user()->hasRole('admin')], $this->successStatus);
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);
         }

@@ -27,6 +27,10 @@ const messages = {
 		to_continue: "to continue to HorizonPanel Admin",
 		next: "Next",
 		invalid_email: "Invalid Email",
+		unknown_error: "Unknown Error",
+		submit: "Submit",
+		enter_password: "Enter the password for",
+		invalid_password: "Invalid Password",
 	}
 }
 
