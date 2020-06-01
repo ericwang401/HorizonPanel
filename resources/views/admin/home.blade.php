@@ -2,5 +2,4 @@
 
 @section('content')
     {{ config('horizonapp.version') }}
-
 @endsection

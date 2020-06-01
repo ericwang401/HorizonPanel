@@ -110,12 +110,14 @@
 					</h6>
 					<!-- Navigation -->
 					<ul class="navbar-nav mb-md-3">
+						@can('view roles')
 						<li class="nav-item">
 							<a class="nav-link" href="{{ route('admin.roles') }}">
 								<i class="fas fa-user-tag"></i>
 								<span class="nav-link-text">@lang('admin.roles')</span>
 							</a>
 						</li>
+						@endcan
 					</ul>
 				</div>
 			</div>
@@ -201,7 +203,7 @@
 						</div>
 					</div>
 
-					@if (Request::segment(2) === "dashboard")
+					@if (Request::segment(1) === "admin" && count(request()->segments()) === 1)
 					<div class="row">
 						<div class="col-xl-3 col-md-6">
 							<div class="card card-stats">
