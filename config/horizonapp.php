@@ -65,5 +65,5 @@ return [
     |
     */
 
-    'version' => env('APP_VERSION', 'Cannot fetch version'),
+    'version' => "Build 7",
 ];
