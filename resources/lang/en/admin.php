@@ -23,4 +23,8 @@ return [
 	'submit' => 'Submit',
 	'role_created' => 'Role Created Successfully',
 	'role_deleted' => 'Role Deleted Successfully',
+	'role_updated' => 'Role Updated Successfully',
+	'editing' => 'Editing',
+	'update' => 'Update',
+	'cancel' => 'Cancel',
 ];

@@ -16,9 +16,7 @@ class RoleController extends Controller
         {
             // to search the table
 
-            $searchString = $request->q;
-
-            $results = \Spatie\Permission\Models\Role::where('name', 'LIKE', "%{$searchString}%")->paginate(config('horizonapp.pagination_length'));
+            $results = \Spatie\Permission\Models\Role::where('name', 'LIKE', "%{$request->q}%")->paginate(config('horizonapp.pagination_length'));
 
             return view('admin.roles', ['roles' => $results, 'q' => $request->q]);
         }
@@ -57,5 +55,27 @@ class RoleController extends Controller
         Role::create(['name' => $request->name])->givePermissionTo($permissions); // Create the role and assign permissions
 
         return redirect(route('admin.roles'))->with(['type' => 'alert-success', 'info' => __('admin.role_created')]);
+    }
+
+    public function show(Role $role)
+    {
+        // Give the ability to edit the role
+        return view('admin.update_role', ['role' => $role, 'permissions' => Permission::all()]);
+    }
+
+    public function update(Request $request, Role $role)
+    {
+        // Update the permissions on the role
+        $permissions = array_keys(array_slice($request->all(), 2));
+
+        foreach ($permissions as &$permission) // by default, a permission "view panel" would be converted to "view_panel". We want to convert it back with the whitespace
+        {
+            $permission = str_replace('_', ' ', $permission);
+        }
+
+        $role->syncPermissions($permissions);
+
+        return redirect(route('admin.roles'))->with(['type' => 'alert-success', 'info' => __('admin.role_updated')]);
+
     }
 }

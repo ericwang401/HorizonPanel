@@ -66,7 +66,7 @@
 							@if ($role->name !== 'superuser')
 							<td class="table-actions">
 
-								<a href="#!" class="table-action" data-toggle="tooltip"
+								<a href="{{ route('admin.show_role', $role->id) }}" class="table-action" data-toggle="tooltip"
 									data-original-title="@lang('admin.edit_role')">
 									<i class="far fa-edit"></i>
 								</a>
