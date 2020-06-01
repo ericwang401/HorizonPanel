@@ -29,6 +29,7 @@
         "vue-i18n": "^8.17.6",
         "vue-router": "^3.1.6",
         "vuetify": "^2.2.28",
-        "vuetify-loader": "^1.4.3"
+        "vuetify-loader": "^1.4.3",
+        "vuetify-toast-snackbar": "^0.6.1"
     }
 }

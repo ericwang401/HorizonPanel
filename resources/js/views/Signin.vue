@@ -94,13 +94,28 @@
 				})
 					.then(function (response) {
 						vdata.buffer = false;
-						console.log(response.data.success.token)
+						vdata.$cookie.set('auth', 'Bearer ' + response.data.success.token);
 					})
 					.catch(function (error) {
 						vdata.passwordErrors = t.t('invalid_password');
 						vdata.buffer = false;
 					});
 			}
+		},
+		mounted() 
+		{
+			console.log(this.$cookie.get('auth'), 'TEST')
+			var vdata = this;
+			axios.get(window.location.origin + '/api/auth/details', {
+					authorization: this.$cookie.get('auth'),
+				})
+				.then(function (response) {
+					console.log(response.data)
+				})
+				.catch(function (error) {
+					vdata.$toast.warning(error);
+					console.log(error);
+				});
 		}
 	}
 </script>

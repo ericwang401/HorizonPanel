@@ -393,7 +393,9 @@
 			</div>
 		</div>
 
-		@yield('content')
+		<div class="container-fluid mt--6">
+			@yield('content')
+		</div>
 	</div>
 
 	

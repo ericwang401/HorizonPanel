@@ -17,10 +17,13 @@ class RolesAndPermissionsSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         // We have to first create the admin privileges because we can't assign NULL to a role, right?
-        Permission::create(['name' => 'admin privileges']);
+
+        // Manage roles + roles of users
+        Permission::create(['name' => 'view panel']);
+        
 
         // Let's make the role(s) and bind the permission to the role so it has a purpose
-        Role::create(['name' => 'admin'])->givePermissionTo('admin privileges');
+        Role::create(['name' => 'superuser']);
 
         // End of file! Wow, that is really short... like yours.
     }

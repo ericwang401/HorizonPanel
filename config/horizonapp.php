@@ -52,4 +52,18 @@ return [
     */
 
     'pagination_length' => 10,
+
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Application Version
+    |--------------------------------------------------------------------------
+    |
+    | This is the version of the application specified in the env file.
+    | We recommend you to not fiddle with this as there is no need
+    | 
+    |
+    */
+
+    'version' => env('APP_VERSION', 'Cannot fetch version'),
 ];

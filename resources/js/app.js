@@ -9,7 +9,8 @@ import Vue from 'vue';
 import Vuetify from '@/plugins/vuetify';
 import Route from '@/js/routes.js';
 import App from '@/js/App.vue';
-import i18n from '@/plugins/multilanguage'
+import i18n from '@/plugins/multilanguage';
+import VueCookie from 'vue-cookie';
 
 const app = new Vue({
     vuetify: Vuetify,
@@ -18,5 +19,7 @@ const app = new Vue({
     i18n,
     render: h => h(App)
 });
+
+Vue.use(VueCookie);
 
 export default app;

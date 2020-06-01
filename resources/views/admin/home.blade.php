@@ -1,30 +1,6 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.admin')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('content')
+    {{ config('horizonapp.version') }}
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'HorizonPanel') }} - {{ ucfirst(Request::segment(1)) }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
-
-</head>
-
-<body>
-    <div id="app">
-	</div>
-	
-    <script src="{{ asset('js/app.js') }}"></script>
-</body>
-
-</html>
+@endsection

@@ -23,7 +23,7 @@
                             </v-list-item-content>
                         </v-list-item>
                     </v-list-group>
-                    <v-list-item v-else :key="item.text" :to="item.link" link>
+                    <v-list-item velse :key="item.text" :to="item.link" link>
                         <v-list-item-action>
                             <v-icon>{{ item.icon }}</v-icon>
                         </v-list-item-action>
@@ -47,11 +47,23 @@
             <v-btn icon>
                 <v-icon>mdi-bell</v-icon>
             </v-btn>
-            <v-btn icon large>
-                <v-avatar size="32px" item>
-                    <v-img src="https://cdn.vuetifyjs.com/images/logos/logo.svg" alt="Vuetify"></v-img>
-                </v-avatar>
-            </v-btn>
+            <div class="text-center">
+                <v-menu offset-y>
+                    <template v-slot:activator="{ on }">
+                        <v-btn icon large>
+                            <v-avatar size="32px" v-on="on" item>
+                                <v-img src="https://cdn.vuetifyjs.com/images/logos/logo.svg" alt="Vuetify"></v-img>
+                            </v-avatar>
+                        </v-btn>
+                    </template>
+                    <v-list>
+                        <v-list-item @click="signout">
+                            <v-icon>mdi-logout</v-icon>
+                            <v-list-item-title>{{ $t('sign_out') }}</v-list-item-title>
+                        </v-list-item>
+                    </v-list>
+                </v-menu>
+            </div>
         </v-app-bar>
 
         <v-content :class="{'no-padding': this.$route.path === '/admin/signin'}">
@@ -60,8 +72,12 @@
     </v-app>
 </template>
 
+</template>
+
 <script>
     import t from "@/plugins/multilanguage";
+    import axios from "axios";
+
     export default {
         name: "App",
         data: () => ({
@@ -98,6 +114,18 @@
                 document.title = t.t('horizonpanel') + " - " + to.name;
             },
         },
+        methods: {
+            signout() {
+                this.$toast(t.t('sign_out') + "...");
+
+                axios.post(window.location.origin + '/api/auth/signout', {}, {
+                    headers: {
+                        "Accept": "application/json",
+                        "Authorization": "Bearer " + "test",
+                    }
+                });
+            }
+        }
     };
 </script>
 

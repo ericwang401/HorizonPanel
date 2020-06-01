@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('header')
-{{ __('clientarea.home') }}
+	@lang('clientarea.home')
 @endsection
 
 @section('content')

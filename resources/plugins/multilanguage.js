@@ -31,6 +31,7 @@ const messages = {
 		submit: "Submit",
 		enter_password: "Enter the password for",
 		invalid_password: "Invalid Password",
+		sign_out: "Sign Out",
 	}
 }
 

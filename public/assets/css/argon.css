@@ -18051,6 +18051,12 @@ textarea[resize='horizontal'] {
     color: #f5365c;
 }
 
+.table-action-delete {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
 .table-dark .table-action {
     color: #4d7bca;
 }
