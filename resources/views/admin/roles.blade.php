@@ -9,9 +9,9 @@
 @endisset
 
 @if (Session::get('type'))
-<div class="alert {{ Session::get('type') }}" role="alert">
-	{{ Session::get('info') }}
-</div>
+	<div class="alert {{ Session::get('type') }}" role="alert">
+		{{ Session::get('info') }}
+	</div>
 @endif
 
 <div class="row">
@@ -23,24 +23,21 @@
 					<div class="col-6">
 						<h3 class="mb-0">@lang('admin.all_roles')</h3>
 					</div>
-					@can('manage roles')
 					<div class="col-6 text-right">
 						<a href="{{ route('admin.create_role') }}" class="btn btn-sm btn-primary btn-round btn-icon">
 							<span class="btn-inner--icon"><i class="fas fa-user-tag"></i></span>
 							<span class="btn-inner--text">@lang('admin.create_role')</span>
 						</a>
 					</div>
-					@endcan
 				</div>
-
+				
 				<form class="table-search navbar-search-light form-inline mr-sm-3">
 					<div class="form-group mb-0">
 						<div class="input-group input-group-alternative input-group-merge">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-search"></i></span>
 							</div>
-							<input class="form-control" placeholder="Search" type="text" name="q"
-								value="{{ $q ?? '' }}">
+							<input class="form-control" placeholder="Search" type="text" name="q" value="{{ $q ?? '' }}">
 						</div>
 					</div>
 				</form>
@@ -66,12 +63,11 @@
 								</div>
 							</th>
 
-							@can('manage roles')
 							@if ($role->name !== 'superuser')
 							<td class="table-actions">
 
-								<a href="{{ route('admin.show_role', $role->id) }}" class="table-action"
-									data-toggle="tooltip" data-original-title="@lang('admin.edit_role')">
+								<a href="{{ route('admin.show_role', $role->id) }}" class="table-action" data-toggle="tooltip"
+									data-original-title="@lang('admin.edit_role')">
 									<i class="far fa-edit"></i>
 								</a>
 								<form method="POST" action="{{ route('admin.destroy_role', $role->id) }}">
@@ -84,7 +80,6 @@
 								</form>
 							</td>
 							@endif
-							@endcan
 
 						</tr>
 						@endforeach

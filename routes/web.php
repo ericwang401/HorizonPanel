@@ -46,23 +46,16 @@ Route::group(['middleware' => ['permission:view panel']], function () {
 
     Route::get('/admin', 'Admin\AdminDashboardController@index')->name('admin.dashboard');
 
-    Route::group(['middleware' => ['permission:view roles']], function () {
+    Route::get('/admin/roles', 'Admin\RoleController@index')->name('admin.roles');
 
-        Route::get('/admin/roles', 'Admin\RoleController@index')->name('admin.roles');
+    Route::get('/admin/roles/create', 'Admin\RoleController@create')->name('admin.create_role');
 
-        Route::group(['middleware' => ['permission:manage roles']], function () {
+    Route::post('/admin/roles', 'Admin\RoleController@store')->name('admin.store_role');
 
-            Route::get('/admin/roles/create', 'Admin\RoleController@create')->name('admin.create_role');
-        
-            Route::post('/admin/roles', 'Admin\RoleController@store')->name('admin.store_role');
-        
-            Route::get('/admin/roles/{role}/edit', 'Admin\RoleController@show')->name('admin.show_role');
-        
-            Route::put('/admin/roles/{role}', 'Admin\RoleController@update')->name('admin.update_role');
-        
-            Route::delete('/admin/roles/{role}', 'Admin\RoleController@destroy')->name('admin.destroy_role');
+    Route::get('/admin/roles/{role}/edit', 'Admin\RoleController@show')->name('admin.show_role');
 
-        });
-    });
+    Route::put('/admin/roles/{role}', 'Admin\RoleController@update')->name('admin.update_role');
+
+    Route::delete('/admin/roles/{role}', 'Admin\RoleController@destroy')->name('admin.destroy_role');
 
 });

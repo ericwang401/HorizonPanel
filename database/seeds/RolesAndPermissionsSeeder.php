@@ -20,9 +20,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // Manage roles + roles of users
         Permission::create(['name' => 'view panel']);
-
-        Permission::create(['name' => 'view roles']);
-        Permission::create(['name' => 'manage roles']);
+        
 
         // Let's make the role(s) and bind the permission to the role so it has a purpose
         Role::create(['name' => 'superuser'])->givePermissionTo('view panel');
