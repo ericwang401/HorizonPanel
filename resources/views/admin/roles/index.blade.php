@@ -59,7 +59,13 @@
 							<th scope="row">
 								<div class="media align-items-center">
 									<div class="media-body">
-										<span class="name mb-0 text-sm">{{ ucfirst($role->name) }}</span>
+										@if ($role->name !== 'superuser')
+											<a href="{{ route('admin.show_role', $role->id) }}">
+												<span class="name mb-0 text-sm c-initial">{{ ucfirst($role->name) }}</span>
+											</a>
+										@else
+											<span class="name mb-0 text-sm c-initial">{{ ucfirst($role->name) }}</span>
+										@endif
 									</div>
 								</div>
 							</th>
@@ -71,7 +77,7 @@
 									data-toggle="tooltip" data-original-title="@lang('admin.edit_role')">
 									<i class="far fa-edit"></i>
 								</a>
-								<form method="POST" action="{{ route('admin.destroy_role', $role->id) }}">
+								<form class="inline-block" method="POST" action="{{ route('admin.destroy_role', $role->id) }}">
 									@method('delete')
 									@csrf
 									<button type="submit" class="table-action table-action-delete" data-toggle="tooltip"

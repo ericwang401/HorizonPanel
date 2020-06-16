@@ -22875,3 +22875,11 @@ input.datetimepicker[data-color='yellow']+.bootstrap-datetimepicker-widget table
     bottom: 1.5rem;
     position: absolute;
 }
+
+.c-initial {
+    color: initial !important;
+}
+
+.form-inline-block {
+    display: inline-block;
+}

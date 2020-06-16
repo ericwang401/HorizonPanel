@@ -23,7 +23,7 @@
 			@foreach ($permissions as $permission)
 			<div class="col-md-4">
 				<div class="custom-control custom-checkbox mb-3">
-					<input class="custom-control-input" name="{{ $permission->name }}" id="{{ str_replace(' ', '', $permission->name) }}" type="checkbox">
+					<input class="custom-control-input" name="permissions[]" value="{{ $permission->name }}" id="{{ str_replace(' ', '', $permission->name) }}" type="checkbox">
 					<label class="custom-control-label" for="{{ str_replace(' ', '', $permission->name) }}">{{ ucfirst($permission->name) }}</label>
 			  	</div>
 			</div>
