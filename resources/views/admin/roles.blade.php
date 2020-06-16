@@ -3,9 +3,9 @@
 @section('content')
 
 @isset($type)
-<div class="alert {{ $type }}" role="alert">
-	{{ $info }}
-</div>
+	<div class="alert {{ $type }}" role="alert">
+		{{ $info }}
+	</div>
 @endisset
 
 @if (Session::get('type'))
@@ -30,14 +30,15 @@
 						</a>
 					</div>
 				</div>
-				
+
 				<form class="table-search navbar-search-light form-inline mr-sm-3">
 					<div class="form-group mb-0">
 						<div class="input-group input-group-alternative input-group-merge">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-search"></i></span>
 							</div>
-							<input class="form-control" placeholder="Search" type="text" name="q" value="{{ $q ?? '' }}">
+							<input class="form-control" placeholder="Search" type="text" name="q"
+								value="{{ $q ?? '' }}">
 						</div>
 					</div>
 				</form>
@@ -66,8 +67,8 @@
 							@if ($role->name !== 'superuser')
 							<td class="table-actions">
 
-								<a href="{{ route('admin.show_role', $role->id) }}" class="table-action" data-toggle="tooltip"
-									data-original-title="@lang('admin.edit_role')">
+								<a href="{{ route('admin.show_role', $role->id) }}" class="table-action"
+									data-toggle="tooltip" data-original-title="@lang('admin.edit_role')">
 									<i class="far fa-edit"></i>
 								</a>
 								<form method="POST" action="{{ route('admin.destroy_role', $role->id) }}">
