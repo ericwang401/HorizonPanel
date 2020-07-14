@@ -24,7 +24,7 @@
 						<h3 class="mb-0">@lang('admin.all_roles')</h3>
 					</div>
 					<div class="col-6 text-right">
-						<a href="{{ route('admin.create_role') }}" class="btn btn-sm btn-primary btn-round btn-icon">
+						<a href="{{ route('admin.roles.create') }}" class="btn btn-sm btn-primary btn-round btn-icon">
 							<span class="btn-inner--icon"><i class="fas fa-user-tag"></i></span>
 							<span class="btn-inner--text">@lang('admin.create_role')</span>
 						</a>
@@ -60,7 +60,7 @@
 								<div class="media align-items-center">
 									<div class="media-body">
 										@if ($role->name !== 'superuser')
-											<a href="{{ route('admin.show_role', $role->id) }}">
+											<a href="{{ route('admin.roles.edit', $role->id) }}">
 												<span class="name mb-0 text-sm c-initial">{{ ucfirst($role->name) }}</span>
 											</a>
 										@else
@@ -73,11 +73,11 @@
 							@if ($role->name !== 'superuser')
 							<td class="table-actions">
 
-								<a href="{{ route('admin.show_role', $role->id) }}" class="table-action"
+								<a href="{{ route('admin.roles.edit', $role->id) }}" class="table-action"
 									data-toggle="tooltip" data-original-title="@lang('admin.edit_role')">
 									<i class="far fa-edit"></i>
 								</a>
-								<form class="inline-block" method="POST" action="{{ route('admin.destroy_role', $role->id) }}">
+								<form class="inline-block" method="POST" action="{{ route('admin.roles.destroy', $role->id) }}">
 									@method('delete')
 									@csrf
 									<button type="submit" class="table-action table-action-delete" data-toggle="tooltip"
@@ -103,14 +103,6 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
 @endsection
+
+@include('components.dialogs.delete')

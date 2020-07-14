@@ -8,7 +8,7 @@
 	</div>
 	<!-- Card body -->
 	<div class="card-body">
-	  <form method="POST" action="{{ route('admin.update_role', $role->id) }}">
+	  <form method="POST" action="{{ route('admin.roles.update', $role->id) }}">
 		@csrf
 		@method('put')
 
@@ -23,8 +23,17 @@
 			</div>
 			@endforeach
 		</div>
-		<button type="submit" class="btn btn-primary">@lang('admin.update')</button> <a href="{{ route('admin.roles') }}" class="btn btn-secondary">@lang('admin.cancel')</a> <button type="button" class="btn btn-danger float-right">@lang('admin.delete_role')</button>
+		<button type="submit" class="btn btn-primary">@lang('admin.update')</button> 
+		<a href="{{ route('admin.roles') }}" class="btn btn-secondary">@lang('admin.cancel')</a> 
+		<button type="button" class="btn btn-danger delete-action float-right" data-form-id="#deleteForm">@lang('admin.delete_role')</button>
 	  </form>
+		
+	  	<form id="deleteForm" class="inline-block" method="POST" action="{{ route('admin.roles.destroy', $role->id) }}">
+			  @method('delete')
+			  @csrf
+		</form>
 	</div>
   </div>
 @endsection
+
+@include('components.dialogs.delete')

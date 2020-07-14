@@ -14,5 +14,13 @@ return [
 	*/
 
 	'categories' => 'Categories',
-	'purchase' => 'Purchase',
+    'purchase' => 'Purchase',
+    'active' => 'Active',
+    'disabled' => 'Disabled',
+    'ready' => 'Ready',
+    'processing' => 'Processing',
+    'please_wait' => 'Please Wait',
+    'are_you_sure' => 'Are you sure you want to continue?',
+    'confirm_deletion' => 'Confirm Deletion',
+    'confirm' => 'Confirm',
 ];

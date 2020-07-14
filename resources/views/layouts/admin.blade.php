@@ -117,6 +117,22 @@
 							</a>
 						</li>
 					</ul>
+					<!-- Divider -->
+					<hr class="my-3">
+					<!-- Heading -->
+					<h6 class="navbar-heading p-0 text-muted">
+						<span class="docs-normal">@lang('admin.payment_service')</span>
+						<span class="docs-mini"><i class="fas fa-money-check"></i></span>
+					</h6>
+					<!-- Navigation -->
+					<ul class="navbar-nav mb-md-3">
+						<li class="nav-item">
+							<a class="nav-link" href="{{ route('admin.gateways') }}">
+								<i class="fas fa-money-check"></i>
+								<span class="nav-link-text">@lang('admin.all_gateways')</span>
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>

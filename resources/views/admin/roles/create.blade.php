@@ -8,7 +8,7 @@
 	</div>
 	<!-- Card body -->
 	<div class="card-body">
-	  <form method="POST" action="{{ route('admin.store_role') }}">
+	  <form method="POST" action="{{ route('admin.roles.store') }}">
 		@csrf
 		@error('name')
 			<div class="alert alert-danger" role="alert">
@@ -29,7 +29,7 @@
 			</div>
 			@endforeach
 		</div>
-		<button type="submit" class="btn btn-primary">@lang('admin.submit')</button>
+		<button type="submit" class="btn btn-primary">@lang('admin.submit')</button> <a href="{{ route('admin.roles') }}" class="btn btn-secondary">@lang('admin.cancel')</a>
 	  </form>
 	</div>
   </div>

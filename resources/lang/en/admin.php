@@ -27,4 +27,12 @@ return [
 	'editing' => 'Editing',
 	'update' => 'Update',
 	'cancel' => 'Cancel',
+	'all_gateways' => 'All Gateways',
+	'gateway' => 'Gateway',
+	'all_available_gateways' => 'All Available Gateways',
+	'delete_gateway' => 'Delete Gateway',
+	'delete_gateway_description' => 'Deleting this gateway will delete all API credentials/configuration. Users will no longer be able to perform actions using this payment gateway. Clients with recurring billing must be cancelled on their side. This action will NOT delete invoices and other billing logs.',
+	'edit_gateway' => 'Edit Gateway',
+	'payment_service' => 'Payment Service',
+	'add_gateway' => 'Add a New Gateway',
 ];

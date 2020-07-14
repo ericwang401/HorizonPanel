@@ -178,6 +178,8 @@ return [
         // Spatie permission manager for admin roles, support, etc
         Spatie\Permission\PermissionServiceProvider::class,
 
+        // Omnipay provider (this is for payment processing | remove at your own risk)
+        Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class,
     ],
 
     /*
@@ -229,6 +231,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class,
 
     ],
 

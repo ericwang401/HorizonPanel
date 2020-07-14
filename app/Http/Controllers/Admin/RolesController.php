@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-class RoleController extends Controller
+class RolesController extends Controller
 {
     public function index(Request $request)
     {
@@ -16,9 +16,7 @@ class RoleController extends Controller
         {
             // to search the table
 
-            $results = \Spatie\Permission\Models\Role::where('name', 'LIKE', "%{$request->q}%")->paginate(config('horizonapp.pagination_length'));
-
-            return view('admin.roles.index', ['roles' => $results, 'q' => $request->q]);
+            return view('admin.roles.index', ['roles' => \Spatie\Permission\Models\Role::where('name', 'LIKE', "%{$request->q}%")->paginate(config('horizonapp.pagination_length')), 'q' => $request->q]);
         }
         
         return view('admin.roles.index', ['roles' => \Spatie\Permission\Models\Role::paginate(config('horizonapp.pagination_length'))]);
@@ -50,7 +48,7 @@ class RoleController extends Controller
         return redirect(route('admin.roles'))->with(['type' => 'alert-success', 'info' => __('admin.role_created')]);
     }
 
-    public function show(Role $role)
+    public function edit(Role $role)
     {
         // Give the ability to edit the role
         return view('admin.roles.update', ['role' => $role, 'permissions' => Permission::all()]);

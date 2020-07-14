@@ -24,7 +24,7 @@ Route::get('/admin/', function() {
 });
 
 /*
-scraped idea
+scrapped idea
 Route::get('/admin/{any}', function() {
     return view('admin.home');
 })->where('any', '.*');
@@ -46,16 +46,28 @@ Route::group(['middleware' => ['permission:view panel']], function () {
 
     Route::get('/admin', 'Admin\AdminDashboardController@index')->name('admin.dashboard');
 
-    Route::get('/admin/roles', 'Admin\RoleController@index')->name('admin.roles');
 
-    Route::get('/admin/roles/create', 'Admin\RoleController@create')->name('admin.create_role');
+    // Roles Component
+    Route::get('/admin/roles', 'Admin\RolesController@index')->name('admin.roles');
 
-    Route::post('/admin/roles', 'Admin\RoleController@store')->name('admin.store_role');
+    Route::get('/admin/roles/create', 'Admin\RolesController@create')->name('admin.roles.create');
 
-    Route::get('/admin/roles/{role}/edit', 'Admin\RoleController@show')->name('admin.show_role');
+    Route::post('/admin/roles', 'Admin\RolesController@store')->name('admin.roles.store');
 
-    Route::put('/admin/roles/{role}', 'Admin\RoleController@update')->name('admin.update_role');
+    Route::get('/admin/roles/{role}/edit', 'Admin\RolesController@edit')->name('admin.roles.edit');
 
-    Route::delete('/admin/roles/{role}', 'Admin\RoleController@destroy')->name('admin.destroy_role');
+    Route::put('/admin/roles/{role}', 'Admin\RolesController@update')->name('admin.roles.update');
+
+    Route::delete('/admin/roles/{role}', 'Admin\RolesController@destroy')->name('admin.roles.destroy');
+
+
+    // Payment Credentials Component
+    Route::get('/admin/gateways', 'Admin\GatewayCredentialsController@index')->name('admin.gateways');
+
+    Route::get('/admin/gateways/create', 'Admin\GatewayCredentialsController@create')->name('admin.gateways.create');
+
+    Route::get('/admin/gateways/{gateway}/edit', 'Admin\GatewayCredentialsController@edit')->name('admin.gateways.edit');
+
+    Route::delete('/admin/gateways/{gateway}', 'Admin\GatewayCredentialsController@destroy')->name('admin.gateways.destroy');
 
 });

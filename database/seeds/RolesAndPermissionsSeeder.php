@@ -7,7 +7,7 @@ use Spatie\Permission\Models\Permission;
 class RolesAndPermissionsSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Add the roles to HorizonPanel (e.g. admin, staff)
      *
      * @return void
      */
