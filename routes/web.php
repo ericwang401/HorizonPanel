@@ -66,6 +66,8 @@ Route::group(['middleware' => ['permission:view panel']], function () {
 
     Route::get('/admin/gateways/create', 'Admin\GatewayCredentialsController@create')->name('admin.gateways.create');
 
+    Route::post('/admin/gateways/', 'Admin\GatewayCredentialsController@store')->name('admin.gateways.store');
+
     Route::get('/admin/gateways/{gateway}/edit', 'Admin\GatewayCredentialsController@edit')->name('admin.gateways.edit');
 
     Route::delete('/admin/gateways/{gateway}', 'Admin\GatewayCredentialsController@destroy')->name('admin.gateways.destroy');

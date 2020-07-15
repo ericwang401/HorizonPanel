@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\PaymentMethods;
+use Omnipay\Omnipay;
 
 class GatewayCredentialsController extends Controller
 {
@@ -19,5 +20,26 @@ class GatewayCredentialsController extends Controller
         }
         
         return view('admin.gateways.index', ['gateways' => PaymentMethods::paginate(config('horizonapp.pagination_length'))]);
+    }
+
+    public function destroy(PaymentMethods $gateway)
+    {
+        // Delete the gateway
+        $gateway->delete();
+
+        return redirect(route('admin.gateways'))->with(['type' => 'alert-success', 'info' => __('admin.gateway_deleted')]);
+    }
+
+    public function create()
+    {
+        return view('admin.gateways.create');
+    }
+
+    public function store(Request $request)
+    {
+        // validate the required fields
+        $request->validate(['name' => 'required|string|unique:payment_methods']);
+
+        if ()
     }
 }
