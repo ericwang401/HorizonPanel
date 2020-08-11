@@ -4,7 +4,6 @@ namespace App\Http\Controllers\ClientAreaControllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Packages;
 use App\PackageCategory;

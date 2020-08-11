@@ -113,7 +113,7 @@
 						<li class="nav-item">
 							<a class="nav-link" href="{{ route('admin.roles.index') }}">
 								<i class="fas fa-user-tag"></i>
-								<span class="nav-link-text">@lang('admin.roles.index')</span>
+								<span class="nav-link-text">@lang('admin.roles')</span>
 							</a>
 						</li>
 					</ul>
