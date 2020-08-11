@@ -10,7 +10,7 @@ use Omnipay\Omnipay;
 
 class GatewayCredentialsController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request) //test
     {
         // Return all available payment methods
         if ( !empty($request->q) ) // if user specifies a query to search through the model
