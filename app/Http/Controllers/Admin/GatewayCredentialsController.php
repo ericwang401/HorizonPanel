@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\PaymentMethods;
+use Webpoint\Models\PaymentMethods;
 use Omnipay\Omnipay;
 
 class GatewayCredentialsController extends Controller

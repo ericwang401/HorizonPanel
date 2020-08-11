@@ -165,6 +165,7 @@ class ComposerStaticInitc8a1c469873cf7188955798a831e2f05
             'Http\\Discovery\\' => 15,
             'Http\\Client\\' => 12,
             'Http\\Adapter\\Guzzle6\\' => 21,
+            'HorizonPanel\\' => 13,
         ),
         'G' => 
         array (
@@ -501,6 +502,10 @@ class ComposerStaticInitc8a1c469873cf7188955798a831e2f05
         array (
             0 => __DIR__ . '/..' . '/php-http/guzzle6-adapter/src',
         ),
+        'HorizonPanel\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -624,13 +629,12 @@ class ComposerStaticInitc8a1c469873cf7188955798a831e2f05
     );
 
     public static $classMap = array (
-        'App\\BillingInterval' => __DIR__ . '/../..' . '/app/BillingInterval.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-        'App\\GatewayCredentials' => __DIR__ . '/../..' . '/app/GatewayCredentials.php',
         'App\\Http\\Controllers\\API\\Auth\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/Auth/AuthController.php',
         'App\\Http\\Controllers\\Admin\\AdminDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminDashboardController.php',
-        'App\\Http\\Controllers\\Admin\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/RoleController.php',
+        'App\\Http\\Controllers\\Admin\\GatewayCredentialsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GatewayCredentialsController.php',
+        'App\\Http\\Controllers\\Admin\\RolesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/RolesController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -652,17 +656,11 @@ class ComposerStaticInitc8a1c469873cf7188955798a831e2f05
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\Images' => __DIR__ . '/../..' . '/app/Images.php',
-        'App\\PackageCategory' => __DIR__ . '/../..' . '/app/PackageCategory.php',
-        'App\\Packages' => __DIR__ . '/../..' . '/app/Packages.php',
-        'App\\PaymentMethods' => __DIR__ . '/../..' . '/app/PaymentMethods.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\Subscriptions' => __DIR__ . '/../..' . '/app/Subscriptions.php',
-        'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
@@ -1608,6 +1606,13 @@ class ComposerStaticInitc8a1c469873cf7188955798a831e2f05
         'Highlight\\RegExMatch' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/RegExMatch.php',
         'Highlight\\RegExUtils' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/RegExUtils.php',
         'Highlight\\Terminators' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Terminators.php',
+        'HorizonPanel\\Models\\GatewayCredentials' => __DIR__ . '/../..' . '/app/Models/GatewayCredentials.php',
+        'HorizonPanel\\Models\\Images' => __DIR__ . '/../..' . '/app/Models/Images.php',
+        'HorizonPanel\\Models\\PackageCategory' => __DIR__ . '/../..' . '/app/Models/PackageCategory.php',
+        'HorizonPanel\\Models\\Packages' => __DIR__ . '/../..' . '/app/Models/Packages.php',
+        'HorizonPanel\\Models\\PaymentMethods' => __DIR__ . '/../..' . '/app/Models/PaymentMethods.php',
+        'HorizonPanel\\Models\\Subscriptions' => __DIR__ . '/../..' . '/app/Models/Subscriptions.php',
+        'HorizonPanel\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'Http\\Adapter\\Guzzle6\\Client' => __DIR__ . '/..' . '/php-http/guzzle6-adapter/src/Client.php',
         'Http\\Adapter\\Guzzle6\\Exception\\UnexpectedValueException' => __DIR__ . '/..' . '/php-http/guzzle6-adapter/src/Exception/UnexpectedValueException.php',
         'Http\\Adapter\\Guzzle6\\Promise' => __DIR__ . '/..' . '/php-http/guzzle6-adapter/src/Promise.php',
@@ -3105,10 +3110,6 @@ class ComposerStaticInitc8a1c469873cf7188955798a831e2f05
         'Mockery\\Undefined' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Undefined.php',
         'Mockery\\VerificationDirector' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/VerificationDirector.php',
         'Mockery\\VerificationExpectation' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/VerificationExpectation.php',
-        'Modules\\PterodactylHorizon\\Database\\Seeders\\PterodactylHorizonDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/PterodactylHorizon/Database/Seeders/PterodactylHorizonDatabaseSeeder.php',
-        'Modules\\PterodactylHorizon\\Http\\Controllers\\PterodactylHorizonController' => __DIR__ . '/../..' . '/Modules/PterodactylHorizon/Http/Controllers/PterodactylHorizonController.php',
-        'Modules\\PterodactylHorizon\\Providers\\PterodactylHorizonServiceProvider' => __DIR__ . '/../..' . '/Modules/PterodactylHorizon/Providers/PterodactylHorizonServiceProvider.php',
-        'Modules\\PterodactylHorizon\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/PterodactylHorizon/Providers/RouteServiceProvider.php',
         'Money\\Calculator' => __DIR__ . '/..' . '/moneyphp/money/src/Calculator.php',
         'Money\\Calculator\\BcMathCalculator' => __DIR__ . '/..' . '/moneyphp/money/src/Calculator/BcMathCalculator.php',
         'Money\\Calculator\\GmpCalculator' => __DIR__ . '/..' . '/moneyphp/money/src/Calculator/GmpCalculator.php',

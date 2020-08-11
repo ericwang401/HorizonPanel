@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace HorizonPanel\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
