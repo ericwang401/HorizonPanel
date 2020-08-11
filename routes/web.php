@@ -19,10 +19,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin/', function() {
-    return view('admin.home');
-});
-
 /*
 scrapped idea
 Route::get('/admin/{any}', function() {

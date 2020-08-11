@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\PermissionRegistrar;
 
 class RolesController extends Controller
 {
@@ -16,10 +17,10 @@ class RolesController extends Controller
         {
             // to search the table
 
-            return view('admin.roles.index', ['roles' => \Spatie\Permission\Models\Role::where('name', 'LIKE', "%{$request->q}%")->paginate(config('horizonapp.pagination_length')), 'q' => $request->q]);
+            return view('admin.roles.index', ['roles' => Role::where('name', 'LIKE', "%{$request->q}%")->paginate(config('horizonapp.pagination_length')), 'q' => $request->q]);
         }
         
-        return view('admin.roles.index', ['roles' => \Spatie\Permission\Models\Role::paginate(config('horizonapp.pagination_length'))]);
+        return view('admin.roles.index', ['roles' => Role::paginate(config('horizonapp.pagination_length'))]);
     }
 
     public function destroy(Role $role)
@@ -41,7 +42,7 @@ class RolesController extends Controller
         // Store the role and add the specified permissions in the form
         $request->validate(['name' => 'required|unique:roles']);
 
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions(); // forget cache to avoid conflict
+        app()[PermissionRegistrar::class]->forgetCachedPermissions(); // forget cache to avoid conflict
 
         Role::create(['name' => $request->name])->givePermissionTo($request->permissions); // Create the role and assign permissions
 
@@ -58,7 +59,7 @@ class RolesController extends Controller
     {
         // Update the permissions on the role
 
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions(); // forget cache to avoid conflict
+        app()[PermissionRegistrar::class]->forgetCachedPermissions(); // forget cache to avoid conflict
 
         $role->syncPermissions($request->permissions);
 
