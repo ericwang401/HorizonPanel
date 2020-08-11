@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Webpoint\Models\PaymentMethods;
+use HorizonPanel\Models\PaymentMethods;
+use \Exception as Exception;
 use Omnipay\Omnipay;
 
 class GatewayCredentialsController extends Controller
@@ -38,8 +39,23 @@ class GatewayCredentialsController extends Controller
     public function store(Request $request)
     {
         // validate the required fields
-        $request->validate(['name' => 'required|string|unique:payment_methods']);
+        $request->validate(['name' => 'required|string|unique:payment_methods,gateway']);
 
-        if ()
+        if (!$this->attemptGateway($request->name)) return redirect(route('admin.gateways.create'))->with(['type' => 'alert-danger', 'info' => __('admin.invalid_gateway')]);
+
+        PaymentMethods::create(['gateway' => $request->name]); // runs if Omnipay doesn't throw an exception
+
+        return redirect(route('admin.gateways'))->with(['type' => 'alert-success', 'info' => __('admin.gateway_added')]);
+    }
+
+    public function attemptGateway($gateway) // a gateway exists only if the "try catch" block does not throw an error
+    {
+        try {
+            Omnipay::create($gateway);
+        } catch (Exception $e) {
+            return false;
+        }
+
+        return true;
     }
 }

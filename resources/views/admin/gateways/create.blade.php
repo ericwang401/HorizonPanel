@@ -1,6 +1,18 @@
 @extends('layouts.admin')
 
 @section('content')
+@if (Session::get('type'))
+	<div class="alert {{ Session::get('type') }}" role="alert">
+		{{ Session::get('info') }}
+	</div>
+@endif
+
+@error('name')
+	<div class="alert alert-danger" role="alert">
+		{{ $message }}
+	</div>
+@enderror
+
 <div class="card mb-4">
 	<!-- Card header -->
 	<div class="card-header">
@@ -14,14 +26,9 @@
     
 	  <form method="POST" action="{{ route('admin.gateways.store') }}">
 		@csrf
-		@error('name')
-			<div class="alert alert-danger" role="alert">
-				{{ $message }}
-			</div>
-		@enderror
 		<div class="form-group">
 			<label class="form-control-label" for="name">@lang('admin.name')</label>
-			<input type="text" class="form-control" name="name" id="name" placeholder="@lang('admin.name')" required>
+			<input type="text" class="form-control" name="name" id="name" placeholder="@lang('admin.name')" value="{{ old('name') }}" required>
 		</div>
 		<div class="row">
 			<div class="col-md-4">

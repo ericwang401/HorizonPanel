@@ -37,4 +37,6 @@ return [
 	'payment_service' => 'Payment Service',
 	'add_gateway' => 'Add a New Gateway',
 	'add_gateway_notice' => 'When referencing a gateway, you must refer to the case-sensitive reference for the payment gateway. For example, "PayPal Express" is "PayPal_Express". To add a gateway, please visit https://github.com/thephpleague/omnipay#payment-gateways and run "composer require repository-name/payment-gateway" with composer installed + terminal access in your application root.',
+	'invalid_gateway' => 'Invalid Gateway',
+	'gateway_added' => 'Gateway Added Successfully',
 ];
