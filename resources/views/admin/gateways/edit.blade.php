@@ -20,22 +20,29 @@
 	</div>
 	<!-- Card body -->
 	<div class="card-body">
-	  <form method="POST" action="{{ route('admin.gateways.update') }}">
+	  <form method="POST" action="{{ route('admin.gateways.update', $gateway->id) }}">
 		@csrf
+		@method('put')
+
 		<h3>@lang('admin.editing') "{{ $gateway->name }}"</h3>
 
-		<div class="form-group">
-			<label class="form-control-label" for="name">@lang('admin.name')</label>
-			<input type="text" class="form-control" name="name" id="name" placeholder="@lang('admin.name')" value="{{ old('name') }}" required>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<div class="custom-control custom-checkbox mb-3">
-					<input class="custom-control-input" name="disabled" value="@lang('main.disabled')" id="disabled" type="checkbox">
-					<label class="custom-control-label" for="disabled">@lang('main.disabled')</label>
-			  	</div>
-			</div>
-		</div>
+		@foreach ($parameters as $parameter => $value)
+			@if (is_array($value))
+				<label class="form-control-label">{{ $parameter }}</label>
+				@foreach ($value as $subvalue => $option)
+					<div class="custom-control custom-radio mb-3">
+  						<input type="radio" id="{{ $option }}" name="parameters[{{ $parameter }}][]" class="custom-control-input" required>
+  						<label class="custom-control-label" title="{{ $option }}" aria-label="{{ $option }} selection" for="{{ $option }}">{{ $option }}</label>
+					</div>
+				@endforeach
+			@else
+				<div class="form-group">
+        			<label for="{{ $parameter }}" class="form-control-label">{{ $parameter }}</label>
+        			<input class="form-control" type="text" name="parameters[{{ $parameter }}][]" title="{{ $parameter }}" aria-label="{{ $parameter }} parameter" id="{{ $parameter }}" required>
+    			</div>
+			@endif
+		@endforeach
+
 		<button type="submit" class="btn btn-primary">@lang('admin.submit')</button> <a href="{{ route('admin.roles.index') }}" class="btn btn-secondary">@lang('admin.cancel')</a>
 	  </form>
 	</div>

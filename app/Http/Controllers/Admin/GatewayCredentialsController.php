@@ -25,7 +25,7 @@ class GatewayCredentialsController extends Controller
 
     public function edit(PaymentMethods $gateway)
     {
-        return view('admin.gateways.edit', ['gateway' => $gateway]);
+        return view('admin.gateways.edit', ['gateway' => $gateway, 'parameters' => Omnipay::create($gateway->name)->getDefaultParameters()]);
     }
 
     public function destroy(PaymentMethods $gateway)
@@ -48,7 +48,7 @@ class GatewayCredentialsController extends Controller
 
         if (!$this->attemptGateway($request->name)) return redirect(route('admin.gateways.create'))->with(['type' => 'alert-danger', 'info' => __('admin.invalid_gateway')]);
 
-        PaymentMethods::create(['gateway' => $request->name]); // runs if Omnipay doesn't throw an exception
+        PaymentMethods::create(['name' => $request->name]); // runs if Omnipay doesn't throw an exception
 
         return redirect(route('admin.gateways.index'))->with(['type' => 'alert-success', 'info' => __('admin.gateway_added')]);
     }

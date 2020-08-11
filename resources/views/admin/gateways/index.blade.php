@@ -60,7 +60,7 @@
 							<th scope="row">
 								<div class="media align-items-center">
 									<div class="media-body">
-										{{ Omnipay\Omnipay::create($gateway->gateway)->getName() }}
+										{{ Omnipay\Omnipay::create($gateway->name)->getName() }}
 									</div>
 								</div>
 							</th>
