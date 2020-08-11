@@ -11,5 +11,5 @@ class PaymentMethods extends Model
      *
      * @var array
      */
-    protected $fillable = ['gateway'];
+    protected $fillable = ['name'];
 }

@@ -15,7 +15,7 @@ class CreatePaymentMethodsTable extends Migration
     {
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
-            $table->string('gateway')->unique();
+            $table->string('name')->unique();
             $table->boolean('disabled')->default(false);
             $table->timestamps();
         });

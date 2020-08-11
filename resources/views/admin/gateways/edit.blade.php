@@ -20,8 +20,10 @@
 	</div>
 	<!-- Card body -->
 	<div class="card-body">
-	  <form method="POST" action="{{ route('admin.gateways.store') }}">
+	  <form method="POST" action="{{ route('admin.gateways.update') }}">
 		@csrf
+		<h3>@lang('admin.editing') "{{ $gateway->name }}"</h3>
+
 		<div class="form-group">
 			<label class="form-control-label" for="name">@lang('admin.name')</label>
 			<input type="text" class="form-control" name="name" id="name" placeholder="@lang('admin.name')" value="{{ old('name') }}" required>

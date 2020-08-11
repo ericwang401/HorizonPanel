@@ -23,6 +23,11 @@ class GatewayCredentialsController extends Controller
         return view('admin.gateways.index', ['gateways' => PaymentMethods::paginate(config('horizonapp.pagination_length'))]);
     }
 
+    public function edit(PaymentMethods $gateway)
+    {
+        return view('admin.gateways.edit', ['gateway' => $gateway]);
+    }
+
     public function destroy(PaymentMethods $gateway)
     {
         // Delete the gateway
@@ -39,7 +44,7 @@ class GatewayCredentialsController extends Controller
     public function store(Request $request)
     {
         // validate the required fields
-        $request->validate(['name' => 'required|string|unique:payment_methods,gateway']);
+        $request->validate(['name' => 'required|string|unique:payment_methods']);
 
         if (!$this->attemptGateway($request->name)) return redirect(route('admin.gateways.create'))->with(['type' => 'alert-danger', 'info' => __('admin.invalid_gateway')]);
 

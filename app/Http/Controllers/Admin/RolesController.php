@@ -52,7 +52,7 @@ class RolesController extends Controller
     public function edit(Role $role)
     {
         // Give the ability to edit the role
-        return view('admin.roles.update', ['role' => $role, 'permissions' => Permission::all()]);
+        return view('admin.roles.edit', ['role' => $role, 'permissions' => Permission::all()]);
     }
 
     public function update(Request $request, Role $role)

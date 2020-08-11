@@ -8,7 +8,7 @@
 	</div>
 	<!-- Card body -->
 	<div class="card-body">
-	  <form method="POST" action="{{ route('admin.roles.update', $role->id) }}">
+	  <form method="POST" action="{{ route('admin.roles.edit', $role->id) }}">
 		@csrf
 		@method('put')
 

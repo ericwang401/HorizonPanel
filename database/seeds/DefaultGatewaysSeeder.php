@@ -1,6 +1,6 @@
 <?php
 
-use App\PaymentMethods;
+use HorizonPanel\Models\PaymentMethods;
 use Illuminate\Database\Seeder;
 
 class DefaultGatewaysSeeder extends Seeder
@@ -12,8 +12,8 @@ class DefaultGatewaysSeeder extends Seeder
      */
     public function run()
     {
-        PaymentMethods::create(['gateway' => 'PayPal_Express']); // Register PayPal
+        PaymentMethods::create(['name' => 'PayPal_Express']); // Register PayPal
 
-        PaymentMethods::create(['gateway' => 'Stripe']); // Register Stripe
+        PaymentMethods::create(['name' => 'Stripe']); // Register Stripe
     }
 }
