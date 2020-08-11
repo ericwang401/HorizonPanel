@@ -28,7 +28,7 @@ class RolesController extends Controller
         // Delete role (very simple lol)
         $role->delete();
 
-        return redirect(route('admin.roles'))->with(['type' => 'alert-success', 'info' => __('admin.role_deleted')]);
+        return redirect(route('admin.roles.index'))->with(['type' => 'alert-success', 'info' => __('admin.role_deleted')]);
     }
 
     public function create()
@@ -46,7 +46,7 @@ class RolesController extends Controller
 
         Role::create(['name' => $request->name])->givePermissionTo($request->permissions); // Create the role and assign permissions
 
-        return redirect(route('admin.roles'))->with(['type' => 'alert-success', 'info' => __('admin.role_created')]);
+        return redirect(route('admin.roles.index'))->with(['type' => 'alert-success', 'info' => __('admin.role_created')]);
     }
 
     public function edit(Role $role)
@@ -63,7 +63,7 @@ class RolesController extends Controller
 
         $role->syncPermissions($request->permissions);
 
-        return redirect(route('admin.roles'))->with(['type' => 'alert-success', 'info' => __('admin.role_updated')]);
+        return redirect(route('admin.roles.index'))->with(['type' => 'alert-success', 'info' => __('admin.role_updated')]);
 
     }
 }

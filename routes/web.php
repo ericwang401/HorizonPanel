@@ -44,28 +44,16 @@ Route::group(['middleware' => ['permission:view panel']], function () {
 
 
     // Roles Component
-    Route::get('/admin/roles', 'Admin\RolesController@index')->name('admin.roles');
 
-    Route::get('/admin/roles/create', 'Admin\RolesController@create')->name('admin.roles.create');
-
-    Route::post('/admin/roles', 'Admin\RolesController@store')->name('admin.roles.store');
-
-    Route::get('/admin/roles/{role}/edit', 'Admin\RolesController@edit')->name('admin.roles.edit');
-
-    Route::put('/admin/roles/{role}', 'Admin\RolesController@update')->name('admin.roles.update');
-
-    Route::delete('/admin/roles/{role}', 'Admin\RolesController@destroy')->name('admin.roles.destroy');
+    Route::resource('/admin/roles', 'Admin\RolesController', [
+        'as' => 'admin'
+    ]);
 
 
     // Payment Credentials Component
-    Route::get('/admin/gateways', 'Admin\GatewayCredentialsController@index')->name('admin.gateways');
 
-    Route::get('/admin/gateways/create', 'Admin\GatewayCredentialsController@create')->name('admin.gateways.create');
-
-    Route::post('/admin/gateways/', 'Admin\GatewayCredentialsController@store')->name('admin.gateways.store');
-
-    Route::get('/admin/gateways/{gateway}/edit', 'Admin\GatewayCredentialsController@edit')->name('admin.gateways.edit');
-
-    Route::delete('/admin/gateways/{gateway}', 'Admin\GatewayCredentialsController@destroy')->name('admin.gateways.destroy');
+    Route::resource('/admin/gateways', 'Admin\GatewayCredentialsController', [
+        'as' => 'admin'
+    ]);
 
 });

@@ -24,7 +24,7 @@
 			@endforeach
 		</div>
 		<button type="submit" class="btn btn-primary">@lang('admin.update')</button> 
-		<a href="{{ route('admin.roles') }}" class="btn btn-secondary">@lang('admin.cancel')</a> 
+		<a href="{{ route('admin.roles.index') }}" class="btn btn-secondary">@lang('admin.cancel')</a> 
 		<button type="button" class="btn btn-danger delete-action float-right" data-form-id="#deleteForm">@lang('admin.delete_role')</button>
 	  </form>
 		

@@ -16,14 +16,10 @@
 <div class="card mb-4">
 	<!-- Card header -->
 	<div class="card-header">
-	  <h3 class="mb-0">@lang('admin.add_gateway')</h3>
+	  <h3 class="mb-0">@lang('admin.edit_gateway')</h3>
 	</div>
 	<!-- Card body -->
 	<div class="card-body">
-        <div class="alert alert-default" role="alert">
-            @lang('admin.add_gateway_notice')
-        </div>
-    
 	  <form method="POST" action="{{ route('admin.gateways.store') }}">
 		@csrf
 		<div class="form-group">

@@ -28,7 +28,7 @@ class GatewayCredentialsController extends Controller
         // Delete the gateway
         $gateway->delete();
 
-        return redirect(route('admin.gateways'))->with(['type' => 'alert-success', 'info' => __('admin.gateway_deleted')]);
+        return redirect(route('admin.gateways.index'))->with(['type' => 'alert-success', 'info' => __('admin.gateway_deleted')]);
     }
 
     public function create()
@@ -45,7 +45,7 @@ class GatewayCredentialsController extends Controller
 
         PaymentMethods::create(['gateway' => $request->name]); // runs if Omnipay doesn't throw an exception
 
-        return redirect(route('admin.gateways'))->with(['type' => 'alert-success', 'info' => __('admin.gateway_added')]);
+        return redirect(route('admin.gateways.index'))->with(['type' => 'alert-success', 'info' => __('admin.gateway_added')]);
     }
 
     public function attemptGateway($gateway) // a gateway exists only if the "try catch" block does not throw an error

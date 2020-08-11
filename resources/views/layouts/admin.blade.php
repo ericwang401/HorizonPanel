@@ -111,9 +111,9 @@
 					<!-- Navigation -->
 					<ul class="navbar-nav mb-md-3">
 						<li class="nav-item">
-							<a class="nav-link" href="{{ route('admin.roles') }}">
+							<a class="nav-link" href="{{ route('admin.roles.index') }}">
 								<i class="fas fa-user-tag"></i>
-								<span class="nav-link-text">@lang('admin.roles')</span>
+								<span class="nav-link-text">@lang('admin.roles.index')</span>
 							</a>
 						</li>
 					</ul>
@@ -127,7 +127,7 @@
 					<!-- Navigation -->
 					<ul class="navbar-nav mb-md-3">
 						<li class="nav-item">
-							<a class="nav-link" href="{{ route('admin.gateways') }}">
+							<a class="nav-link" href="{{ route('admin.gateways.index') }}">
 								<i class="fas fa-money-check"></i>
 								<span class="nav-link-text">@lang('admin.all_gateways')</span>
 							</a>

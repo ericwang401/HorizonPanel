@@ -29,7 +29,7 @@
 			</div>
 			@endforeach
 		</div>
-		<button type="submit" class="btn btn-primary">@lang('admin.submit')</button> <a href="{{ route('admin.roles') }}" class="btn btn-secondary">@lang('admin.cancel')</a>
+		<button type="submit" class="btn btn-primary">@lang('admin.submit')</button> <a href="{{ route('admin.roles.index') }}" class="btn btn-secondary">@lang('admin.cancel')</a>
 	  </form>
 	</div>
   </div>
