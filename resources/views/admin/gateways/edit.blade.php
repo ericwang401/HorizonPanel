@@ -26,24 +26,24 @@
 
 		<h3>@lang('admin.editing') "{{ $gateway->name }}"</h3>
 
-		@foreach ($parameters as $parameter => $value)
+		@foreach ($defaultParameters as $parameter => $value)
 			@if (is_array($value))
 				<label class="form-control-label">{{ $parameter }}</label>
 				@foreach ($value as $subvalue => $option)
 					<div class="custom-control custom-radio mb-3">
-  						<input type="radio" id="{{ $option }}" name="parameters[{{ $parameter }}][]" class="custom-control-input" required>
+  						<input type="radio" id="{{ $option }}" name="parameters[{{ $parameter }}][]" value="{{ $option }}" {{ (!is_null($parameters->where('name', $parameter)->first())) ? (Crypt::decryptString($parameters->where('name', $parameter)->first()->value) === $option) ? 'checked' : '' : '' }} class="custom-control-input" required>
   						<label class="custom-control-label" title="{{ $option }}" aria-label="{{ $option }} selection" for="{{ $option }}">{{ $option }}</label>
 					</div>
 				@endforeach
 			@else
 				<div class="form-group">
         			<label for="{{ $parameter }}" class="form-control-label">{{ $parameter }}</label>
-        			<input class="form-control" type="text" name="parameters[{{ $parameter }}][]" title="{{ $parameter }}" aria-label="{{ $parameter }} parameter" id="{{ $parameter }}" required>
+        			<input class="form-control" type="text" name="parameters[{{ $parameter }}][]" value="{{ (is_null($parameters->where('name', $parameter)->first())) ? '': Crypt::decryptString($parameters->where('name', $parameter)->first()->value) }}" title="{{ $parameter }}" aria-label="{{ $parameter }} parameter" id="{{ $parameter }}" required>
     			</div>
 			@endif
 		@endforeach
 
-		<button type="submit" class="btn btn-primary">@lang('admin.submit')</button> <a href="{{ route('admin.roles.index') }}" class="btn btn-secondary">@lang('admin.cancel')</a>
+		<button type="submit" class="btn btn-primary">@lang('admin.submit')</button> <a href="{{ route('admin.gateways.index') }}" class="btn btn-secondary">@lang('admin.cancel')</a>
 	  </form>
 	</div>
   </div>
