@@ -1,6 +1,5 @@
 import Vue  from 'vue';
 import VueRouter from 'vue-router';
-import t from '@/plugins/multilanguage';
 
 import Home from '@/js/views/Home';
 import Clients from '@/js/views/Clients';
